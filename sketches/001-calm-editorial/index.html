@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sketch 001 — Calm Editorial</title>
+  <style>
+    :root {
+      --paper: #f5efe5;
+      --paper-2: #fbf7f0;
+      --ink: #332420;
+      --muted: #74655f;
+      --terracotta: #b87955;
+      --terracotta-dark: #7b4d3d;
+      --cream-border: rgba(51,36,32,.13);
+      --surface: #fffdf8;
+      --sage: #7d8a73;
+      --ease: cubic-bezier(.23, 1, .32, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display:block; max-width:100%; }
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(245,239,229,.82);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid var(--cream-border);
+    }
+    .nav-inner { max-width: 1180px; margin: 0 auto; padding: 18px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:10px; font-family: Georgia, serif; font-size: 20px; letter-spacing:-.01em; }
+    .brand img { width: 38px; height: 38px; object-fit: contain; }
+    .links { display:flex; align-items:center; gap:28px; color: var(--muted); font-size:14px; }
+    .links a { transition: color 180ms var(--ease), opacity 180ms var(--ease); }
+    .links a:hover { color: var(--ink); }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      border-radius:999px; padding: 13px 22px; min-height:48px;
+      background: var(--terracotta-dark); color: #fffaf2; font-weight:650; font-size:15px;
+      transition: transform 140ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+      box-shadow: 0 0 0 1px rgba(123,77,61,.14), 0 12px 28px rgba(123,77,61,.15);
+    }
+    .btn:hover { background:#673d31; }
+    .btn:active { transform: scale(.975); }
+    .btn.secondary { background: transparent; color: var(--terracotta-dark); box-shadow: inset 0 0 0 1px rgba(123,77,61,.25); }
+    .btn.secondary:hover { background: rgba(123,77,61,.06); }
+    .hero { max-width: 1180px; margin: 0 auto; padding: 74px 24px 64px; display:grid; grid-template-columns: 1.05fr .95fr; gap:64px; align-items:center; }
+    .eyebrow { color: var(--terracotta-dark); text-transform: uppercase; letter-spacing:.13em; font-size:12px; font-weight:700; margin-bottom:18px; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight:500; letter-spacing:-.025em; color: var(--ink); }
+    h1 { font-size: clamp(46px, 6vw, 76px); line-height: .98; max-width: 760px; }
+    .lead { margin-top: 24px; color: var(--muted); font-size: clamp(18px, 1.5vw, 21px); max-width: 620px; line-height:1.65; }
+    .cta-row { margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+    .micro-trust { margin-top: 26px; display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px; }
+    .pill { border:1px solid var(--cream-border); background: rgba(255,253,248,.55); padding:8px 12px; border-radius:999px; }
+    .portrait-stack { position:relative; min-height: 610px; }
+    .portrait-card {
+      position:relative; overflow:hidden; border-radius: 36px 36px 160px 160px;
+      background: var(--surface); border:1px solid var(--cream-border);
+      box-shadow: 0 26px 70px rgba(51,36,32,.12);
+    }
+    .portrait-card img { width:100%; height: 610px; object-fit: cover; object-position:center 24%; }
+    .quote-card {
+      position:absolute; left:-34px; bottom:42px; width:min(310px, 80%);
+      background: rgba(255,253,248,.92); backdrop-filter: blur(14px);
+      border:1px solid var(--cream-border); border-radius:24px; padding:22px;
+      box-shadow: 0 18px 45px rgba(51,36,32,.14);
+    }
+    .quote-card strong { display:block; font-family: Georgia, serif; font-size:22px; line-height:1.15; margin-bottom:8px; font-weight:500; }
+    .quote-card p { color:var(--muted); font-size:14px; }
+    section { padding: 78px 24px; }
+    .container { max-width:1180px; margin:0 auto; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:32px; margin-bottom:28px; }
+    .section-head h2 { font-size: clamp(34px, 4vw, 54px); line-height:1.05; max-width:650px; }
+    .section-head p { color:var(--muted); max-width:410px; }
+    .trust-strip { padding-top: 0; }
+    .trust-grid { display:grid; grid-template-columns: repeat(4,1fr); border:1px solid var(--cream-border); border-radius:30px; overflow:hidden; background: rgba(255,253,248,.56); }
+    .trust-item { padding:22px; border-right:1px solid var(--cream-border); }
+    .trust-item:last-child { border-right:0; }
+    .label { color: var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
+    .value { margin-top:7px; font-family: Georgia, serif; font-size:21px; line-height:1.2; }
+    .cards { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+    .service-card { background: var(--surface); border:1px solid var(--cream-border); border-radius:28px; padding:28px; min-height:260px; transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); }
+    .service-card:hover { transform: translateY(-3px); box-shadow:0 18px 46px rgba(51,36,32,.09); }
+    .service-card .num { color:var(--terracotta); font-size:13px; font-weight:800; letter-spacing:.12em; }
+    .service-card h3 { margin-top:28px; font-size:30px; line-height:1.05; }
+    .service-card p { margin-top:16px; color:var(--muted); }
+    .story { background: var(--paper-2); border-top:1px solid var(--cream-border); border-bottom:1px solid var(--cream-border); }
+    .story-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:52px; align-items:center; }
+    .story-photo { border-radius:34px; overflow:hidden; border:1px solid var(--cream-border); box-shadow: 0 18px 50px rgba(51,36,32,.10); }
+    .story-photo img { height:520px; width:100%; object-fit:cover; object-position:center 22%; }
+    .story h2 { font-size: clamp(36px, 4vw, 58px); line-height:1.05; margin-bottom:20px; }
+    .story p { color:var(--muted); font-size:18px; margin-bottom:18px; max-width:650px; }
+    .steps { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; counter-reset: step; }
+    .step { counter-increment: step; background: rgba(255,253,248,.64); border:1px solid var(--cream-border); border-radius:24px; padding:24px; }
+    .step:before { content: counter(step); width:34px; height:34px; display:grid; place-items:center; border-radius:999px; background: var(--terracotta); color:white; font-weight:800; margin-bottom:28px; }
+    .step h3 { font-size:24px; }
+    .step p { color:var(--muted); margin-top:10px; }
+    .logo-story { display:grid; grid-template-columns: .75fr 1.25fr; gap:44px; align-items:center; background: var(--terracotta-dark); color:#fff7ee; border-radius:36px; padding:42px; overflow:hidden; }
+    .logo-story h2, .logo-story h3 { color:#fff7ee; }
+    .logo-story p { color:rgba(255,247,238,.78); margin-top:14px; }
+    .logo-mark { background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:28px; padding:34px; display:grid; place-items:center; }
+    .logo-mark img { width:220px; }
+    .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(18px); opacity:0; pointer-events:none; background:#332420; color:#fffaf2; padding:12px 16px; border-radius:999px; font-size:14px; transition: opacity 220ms var(--ease), transform 220ms var(--ease); }
+    .toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+    @media (max-width: 860px) {
+      .links { display:none; }
+      .hero { grid-template-columns:1fr; padding-top:42px; gap:34px; }
+      .portrait-stack { min-height:auto; }
+      .portrait-card img { height:480px; }
+      .quote-card { position:static; width:auto; margin-top:14px; }
+      .trust-grid, .cards, .story-grid, .steps, .logo-story { grid-template-columns:1fr; }
+      .trust-item { border-right:0; border-bottom:1px solid var(--cream-border); }
+      .trust-item:last-child { border-bottom:0; }
+      .section-head { display:block; }
+      .section-head p { margin-top:14px; }
+      section { padding:54px 20px; }
+      .nav-inner { padding-inline:20px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#"><img src="../../public/images/eks-logo.png" alt="EKS logo" /> <span>Esther K. Shin Therapy</span></a>
+      <div class="links"><a href="#services">Services</a><a href="#begin">Begin</a><a href="#fees">Fees</a><a href="#contact">Contact</a></div>
+      <a class="btn" href="#contact">Free consultation</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Fullerton, Orange County + teletherapy throughout California</div>
+        <h1>Compassionate relational therapy for individuals, couples, and families.</h1>
+        <p class="lead">Life can be filled with stressors impacting our mental, emotional, physical, and relational health. No matter where you are in life, you are not meant to go through it alone.</p>
+        <div class="cta-row"><a class="btn" href="#contact">Schedule a free 15-minute consultation</a><a class="btn secondary" href="#story">Meet Esther</a></div>
+        <div class="micro-trust"><span class="pill">LMFT #123390</span><span class="pill">Fullerton office</span><span class="pill">Superbills available</span></div>
+      </div>
+      <div class="portrait-stack">
+        <div class="portrait-card"><img src="../../public/images/eks-esther.jpg" alt="Esther K. Shin, LMFT" /></div>
+        <div class="quote-card"><strong>Your trusted relational resource.</strong><p>Hello. I am glad you are here in your first step toward healing and growth.</p></div>
+      </div>
+    </header>
+
+    <section class="trust-strip" id="fees">
+      <div class="container trust-grid">
+        <div class="trust-item"><div class="label">Office</div><div class="value">Fullerton, CA</div></div>
+        <div class="trust-item"><div class="label">Individual session</div><div class="value">$200</div></div>
+        <div class="trust-item"><div class="label">Couples / family</div><div class="value">$215</div></div>
+        <div class="trust-item"><div class="label">Insurance</div><div class="value">Superbill available</div></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head"><h2>Support for the relationships that shape your life.</h2><p>Esther works with individuals, teens, couples, and families through a relational, trauma-informed lens.</p></div>
+        <div class="cards">
+          <article class="service-card"><div class="num">01</div><h3>Individual Therapy</h3><p>A safe, non-judgmental space to develop deeper self-understanding and find relief from emotional pain.</p></article>
+          <article class="service-card"><div class="num">02</div><h3>Couples Therapy</h3><p>Relational support for communication, attachment patterns, repair, and growth together.</p></article>
+          <article class="service-card"><div class="num">03</div><h3>Family Therapy</h3><p>Guided work for families navigating conflict, transition, connection, and healthier patterns.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="container story-grid">
+        <div class="story-photo"><img src="../../public/images/eks-trusted.jpg" alt="Esther seated portrait" /></div>
+        <div><div class="eyebrow">Meet Esther</div><h2>Therapy for health, healing, and wholeness.</h2><p>It is my privilege to join alongside you in paving your life toward health, healing, and wholeness.</p><p>My approach integrates attachment-based, psychodynamic, ACT, DBT, Havening, and somatic perspectives as appropriate to each client.</p><a class="btn secondary" href="#">Read Esther’s story</a></div>
+      </div>
+    </section>
+
+    <section id="begin">
+      <div class="container">
+        <div class="section-head"><h2>Beginning therapy should feel clear, not confusing.</h2><p>Prospective clients need to know what happens next. This flow makes the first step concrete.</p></div>
+        <div class="steps">
+          <div class="step"><h3>Reach out</h3><p>Send a short message with what you’re looking for and your general availability.</p></div>
+          <div class="step"><h3>Free consultation</h3><p>Use a 15-minute call to ask questions and sense whether this feels like a good fit.</p></div>
+          <div class="step"><h3>Begin sessions</h3><p>Meet in-person in Fullerton or online through California via HIPAA-compliant teletherapy.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container logo-story">
+        <div class="logo-mark"><img src="../../public/images/eks-logo.png" alt="Lotus and marigold logo" /></div>
+        <div><div class="eyebrow" style="color:#edc8af">Behind the logo</div><h2>Compassion, resilience, transformation, and inner light.</h2><p>The lotus symbolizes compassion, resilience, transformation, and rebirth. The marigold represents power, strength, and the light that lives inside a person.</p><div class="cta-row"><a class="btn" style="background:#fff7ee;color:#5d382d" href="#" data-toast>Start consultation</a><a class="btn secondary" style="color:#fff7ee;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)" href="#">View FAQs</a></div></div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast">In production this opens the consultation form.</div>
+  <script>
+    document.querySelectorAll('[data-toast]').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }));
+  </script>
+</body>
+</html>
