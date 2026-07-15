@@ -6,6 +6,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section">
     <div class="container">
       <h1 class="text-center" style="font-size: 2.4rem;">Meet Esther.</h1>
+      <div style="max-width: 400px; margin: 2rem auto; border-radius: 12px; overflow: hidden;">
+        <img src="/images/eks-esther.jpg" alt="Esther K. Shin, LMFT" style="width: 100%; height: auto;" />
+      </div>
     </div>
   </section>
 
@@ -22,10 +25,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Credentials -->
+  <!-- Credentials section with photo -->
   <section class="section">
     <div class="container">
-      <h2>Credentials</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+        <div>
+          <h2>Credentials</h2>
       <p>I completed a Master of Science in Marital and Family Therapy from Fuller School of Psychology and earned a Bachelor of Arts in Psychology from University of Illinois at Chicago.</p>
       <div class="mt-2">
         <h3>Certifications &amp; Training</h3>
@@ -34,6 +39,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>Certified in Restoration Therapy (Level II) — identify safety and identity patterns, emotional regulation, and mindfulness for behavioral change</li>
           <li>In-depth training in Havening Techniques — a psychosensory trauma recovery model</li>
         </ul>
+      </div>
+        </div>
+        <div>
+          <img src="/images/eks-credentials.jpg" alt="Esther K. Shin" style="width: 100%; height: auto; border-radius: 12px;" />
+        </div>
       </div>
     </div>
   </section>
