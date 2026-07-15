@@ -39,11 +39,13 @@ const { title, description } = Astro.props;
       "telephone": "",
       "email": "",
       "priceRange": "$$",
-      "image": "https://www.ekstherapy.com/images/og-default.jpg",
+      "image": "https://www.ekstherapy.com/og-default.jpg",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "1370 N. Brea Blvd, Suite 234",
         "addressLocality": "Fullerton",
         "addressRegion": "CA",
+        "postalCode": "92835",
         "addressCountry": "US"
       },
       "hasOfferCatalog": {
@@ -174,6 +176,7 @@ const { title, description } = Astro.props;
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
         <a href="/contact/">Get in Touch</a>
       </div>
     </nav>
