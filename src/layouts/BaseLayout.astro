@@ -92,12 +92,19 @@ const { title, description } = Astro.props;
       h2 { font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
       h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
       p { margin-bottom: 1rem; }
-      a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+      a { color: var(--accent); text-decoration: none; transition: color 200ms ease, opacity 200ms ease; }
       a:hover { color: #a67a52; }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
       img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
       .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
       .section { padding: var(--section-padding); }
       .section-alt { background: var(--bg-white); }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .btn:active { transform: none; }
+        a { transition: none; }
+      }
       .btn {
         display: inline-block;
         padding: 0.85rem 2rem;
@@ -107,7 +114,7 @@ const { title, description } = Astro.props;
         font-size: 0.95rem;
         font-weight: 600;
         letter-spacing: 0.02em;
-        transition: background 0.2s, transform 0.1s;
+        transition: background 200ms ease, transform 100ms ease-out;
         border: none;
         cursor: pointer;
       }
@@ -115,6 +122,9 @@ const { title, description } = Astro.props;
         background: #a67a52;
         color: #fff;
         transform: translateY(-1px);
+      }
+      .btn:active {
+        transform: scale(0.97);
       }
       .btn-outline {
         background: transparent;
