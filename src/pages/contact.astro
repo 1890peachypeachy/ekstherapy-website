@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Get in Touch" description="Schedule a consultation with Esther K. Shin, LMFT. In-person in Fullerton or teletherapy throughout California.">
+  <section class="section text-center" style="padding-top: 3rem;">
+    <div class="container" style="max-width: 600px;">
+      <h1>Get In Touch</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Need more information or want to schedule a consultation? Send any questions, and I'll get back to you as soon as I can.
+      </p>
+
+      <form action="https://formspree.io/f/ekstherapy" method="POST" style="text-align: left;">
+        <!-- First Name -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="firstName" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            First Name <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="text" id="firstName" name="firstName" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Last Name -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="lastName" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Last Name <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="text" id="lastName" name="lastName" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Email -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="email" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Email <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="email" id="email" name="email" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Phone -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="phone" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Phone <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="tel" id="phone" name="phone" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Therapy Type -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="therapyType" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Which type of therapy are you interested in? <span style="color: #d4826a;">*</span>
+          </label>
+          <select id="therapyType" name="therapyType" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+            <option value="">Select an option</option>
+            <option value="individual">Individual</option>
+            <option value="teen">Teen</option>
+            <option value="couples">Couples</option>
+            <option value="family">Family</option>
+          </select>
+        </div>
+
+        <!-- Availability -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="availability" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Availabilities <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="text" id="availability" name="availability" placeholder="e.g. weekday evenings, Saturday mornings" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Referral -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="referral" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            How did you hear about me? <span style="color: #d4826a;">*</span>
+          </label>
+          <input type="text" id="referral" name="referral" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white);">
+        </div>
+
+        <!-- Message -->
+        <div style="margin-bottom: 1.5rem;">
+          <label for="message" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">
+            Message <span style="color: #d4826a;">*</span>
+          </label>
+          <textarea id="message" name="message" rows="5" required
+            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 8px; font-size: 1rem; background: var(--bg-white); resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%;">Send</button>
+      </form>
+
+      <p class="text-muted mt-2" style="font-size: 0.85rem;">
+        Your information will be kept confidential. I'll respond within 1–2 business days.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact info -->
+  <section class="section section-alt text-center">
+    <div class="container">
+      <h2>Location</h2>
+      <p>In-person sessions available in <strong>Fullerton, Orange County</strong></p>
+      <p class="text-muted">Teletherapy available throughout California</p>
+
+      <div class="mt-2">
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">
+          <strong>LMFT #123390</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

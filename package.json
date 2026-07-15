@@ -1,0 +1,16 @@
+{
+  "name": "ekstherapy-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Esther K. Shin Therapy — LMFT Orange County CA",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^8.0.1",
+    "astro": "^5.0.0"
+  }
+}
