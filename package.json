@@ -7,10 +7,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "clone:extract": "node scripts/extract-original-site.mjs"
   },
   "dependencies": {
     "@astrojs/vercel": "^8.0.1",
     "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
   }
 }

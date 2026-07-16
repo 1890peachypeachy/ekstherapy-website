@@ -14,6 +14,7 @@ These skills encode taste-driven design engineering principles for building inte
 | **find-animation-opportunities** | Find places in the UI that genuinely benefit from motion |
 | **apple-design** | Apple's interface design principles (WWDC design talks) translated for the web |
 | **animation-vocabulary** | Glossary mapping vague motion descriptions to exact terms |
+| **astro-carbon-copy-clone** | Project-specific Squarespace → Astro clone workflow: screenshots, computed styles, assets, route topology, specs, and visual QA before redesign |
 
 ## Source
 
